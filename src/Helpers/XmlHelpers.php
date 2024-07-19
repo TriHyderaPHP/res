@@ -1,5 +1,5 @@
 <?php
-namespace App\Res\Helpers;
+namespace trihydera\Res\Helpers;
 
 /**
  * Class XmlHelpers

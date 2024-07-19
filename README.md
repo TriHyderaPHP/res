@@ -36,10 +36,11 @@ The `JsonResponse` class is responsible for handling JSON responses for success 
 Assuming you have an instance of the `JsonResponse` class and the `Errors` class:
 
 ```php
-use TriHydera\Res\JsonResponse;
+use Trihydera\Res\JsonResponse;
 
 // Create an instance of JsonResponse
 $jsonResponse = new JsonResponse();
 
 // Example usage of the useError method
 $jsonResponse->useError('NotFound');
+```

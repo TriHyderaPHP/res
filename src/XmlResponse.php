@@ -1,5 +1,5 @@
 <?php
-namespace TriHydera\Res;
+namespace Trihydera\Res;
 
 /**
  * Class XmlResponse

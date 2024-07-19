@@ -1,5 +1,5 @@
 <?php
-namespace App\Res\Helpers;
+namespace Trihydera\Res\Helpers;
 
 /**
  * Class JsonHelpers
