@@ -1,17 +1,18 @@
 <?php
+
 namespace Trihydera\Res;
 
 /**
- * Class Errors
  * Contains preset error messages and status codes.
  */
-class Errors {
+class Errors
+{
     /**
      * Array of preset error messages and status codes.
      *
      * @var array
      */
-    const PRESETS = [
+    public const PRESETS = [
         '' => ['Something went wrong', '200'],
         'Parameter' => ['Parameter {0} not found', '200'],
         'Method' => ['Method not allowed', '400'],
@@ -20,4 +21,3 @@ class Errors {
         'Authorization' => ['Authorization failed', '403']
     ];
 }
-?>

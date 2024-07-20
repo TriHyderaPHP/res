@@ -1,15 +1,17 @@
 <?php
+
 namespace trihydera\Res\Helpers;
 
 /**
- * Class XmlHelpers
  * Helper class for handling XML responses.
  */
-class XmlHelpers {
+class XmlHelpers
+{
     /**
      * Set the headers for XML response.
      */
-    public function setHeaders() {
+    public function setHeaders()
+    {
         header('Content-Type: application/xml');
     }
 
@@ -18,7 +20,8 @@ class XmlHelpers {
      *
      * @param array $data The array to be converted to XML.
      */
-    public function toXml($data) {
+    public function toXml($data)
+    {
         $xml = new \SimpleXMLElement('<response/>');
         $this->arrayToXml($data, $xml);
         exit($xml->asXML());
@@ -30,7 +33,8 @@ class XmlHelpers {
      * @param array $data The array to be converted to XML.
      * @param \SimpleXMLElement $xml The XML element to append the data to.
      */
-    private function arrayToXml($data, &$xml) {
+    private function arrayToXml($data, &$xml)
+    {
         foreach ($data as $key => $value) {
             if (is_array($value)) {
                 if (is_numeric($key)) {
@@ -44,4 +48,3 @@ class XmlHelpers {
         }
     }
 }
-?>
