@@ -1,46 +1,70 @@
-# Res Package
+# Intro
 
-The `JsonResponse` class is responsible for handling JSON responses for success and error scenarios.
+A helper for handling JSON and XML responses for success and error scenarios with presets of common errors to speed things up,
 
-## Constructor
+First made as an internal library for my API project as apart of the source but made separate to make more maintainable and use in other projects
 
-### `__construct()`
+# Usage
 
-- Description: Initializes the `JsonResponse` class.
-- Parameters: None
+## Getting Started
 
-## Methods
+Require this package, with [Composer](https://getcomposer.org).
 
-### `success($data)`
+```bash
+composer require trihydera/res
+```
 
-- Description: Sends a success JSON response.
-- Parameters:
-  - `$data` (array): The data to include in the response.
-
-### `error($message, $status = '200')`
-
-- Description: Sends an error JSON response.
-- Parameters:
-  - `$message` (string): The error message to include in the response.
-  - `$status` (string, default: '200'): The HTTP status code for the response.
-
-### `useError($id, $value = '')`
-
-- Description: Uses a predefined error message based on the provided ID.
-- Parameters:
-  - `$id` (string): The ID of the predefined error message.
-  - `$value` (string, default: ''): The value to replace in the error message.
-
-## Example Usage
-
-Assuming you have an instance of the `JsonResponse` class and the `Errors` class:
+Using and creating a response instance for `Json` use the `JsonResponse`
 
 ```php
 use Trihydera\Res\JsonResponse;
 
 // Create an instance of JsonResponse
-$jsonResponse = new JsonResponse();
-
-// Example usage of the useError method
-$jsonResponse->useError('NotFound');
+$response = new JsonResponse();
 ```
+
+And for `Xml`, just just use the `XmlResponse` instead
+
+```php
+use Trihydera\Res\XmlResponse;
+
+// Create an instance of XmlResponse
+$response = new XmlResponse();
+```
+
+## Example Success
+
+Returning a `value` key in an `array` to say that the request was a success like `Its working`
+
+```php
+$response->success([
+    'value' => 'Its working'
+]);
+```
+
+## Example Error
+
+Responding with an general error on request
+
+```php
+$response->error('Something went wrong', '200');
+```
+
+For using a preset error to make things quicker, and also using your own messsage like `API resource not found`
+
+```php
+// Example usage of the useError method
+$response->useError('NotFound');
+
+// Example usage of the useError method with your own message
+$response->useError('NotFound', 'API resource not found');
+```
+
+### Error presets
+
+- Parameter
+- Method
+- NotFound
+- InternalError
+- Authorization
+
